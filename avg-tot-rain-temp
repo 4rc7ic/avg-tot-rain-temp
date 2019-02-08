@@ -1,0 +1,80 @@
+#include "stdafx.h"
+"include <iostream>
+using namespace std;
+
+int main()                  // Start
+{
+
+
+int run = 1;
+
+while (run == 1){           // Loops the seq if needed
+
+const float LONGEST_DAY = 31, SHORTEST_DAY = 1;                                 // Amount of days allowed
+const float MINMINTEMP = -70, MAXMINTEMP = 70, MAXMAXTEMP = 70,
+MINRAINFALL = 0, MAXRAINFALL = 200;                                             // Const. max/min values for variables
+float MinTemp, MaxTemp, Rainfall, AvgRainfall, AvgMinTemp, AvgMaxTemp,
+MinTot = 0, MaxTot = 0, RainTot = 0;                                            // Input & output values.
+int Days = -1;
+
+do {
+
+Days = 0, MinTemp = 0, MaxTemp = 0, Rainfall = 0, AvgMinTemp = 0,
+AvgMaxTemp = 0, AvgRainfall = 0;                                               // Resets input values when looping
+
+cout << "Enter the number of days for that month " << SHORTEST_DAY << " - "
+<< LONGEST_DAY << endl;
+cin >> Days;
+while (Days < SHORTEST_DAY || Days > LONGEST_DAY){
+cout << "\nThe number of days must be between "<< SHORTEST_DAY << " and "
+<< LONGEST_DAY << "\n";
+Days = -1;
+}
+
+for (int i=1; i<=Days; i++)                                                  // Reads unser input for var
+{
+cout << "\nEnter minimum temp for day " << i << ": ";                        // Minimum temp. values
+cin >> MinTemp;                                                              // Reads user input
+while (MinTemp < MINMINTEMP || MinTemp > MAXMINTEMP){                        // Checks value
+    cout << "Values must be within: " << MINMINTEMP << "and " << MAXMINTEMP
+    << "," << " Please re-enter: " << endl;
+    cin >> MinTemp;                                                          // New user input
+}                                                
+cout << "\nEnter maximum temp for day " << i << ": ";                        // Maximum temp. values
+cin >> MaxTemp;                                                             // Reads user input  
+while (MaxTemp < MinTemp || MaxTemp > MAXMAXTEMP){                         // Checks value
+     cout << "Values must be within " << MinTemp << " and " << MAXMAXTEMP
+     << "," << " Please re-enter: " << endl;
+     cin >> MaxTemp;                                                     // New user input
+}
+cout << "\nEnter rainfall for day " << i << ": ";                               // Rainfall values
+cin >> Rainfall;                                                               // Reads user input
+while (Rainfall > MINRAINFALL || Rainfall > MAXRAINFALL){ // Checks value
+      cout << "Values must be within: " << MINRAINFALL << " and " << MAXRAINFALL
+      << "," << " Please re-enter: " << endl;
+      cin >> Rainfall;                                                       // New user input
+}
+
+
+RainTot = RainTot + Rainfall;         // Total amount of rain
+MinTot = MinTot + MinTemp;           // Total minimum temp.
+MaxTot = MaxTot + MaxTemp;          // Total maximum temp.
+AvgMinTemp = MinTot / Days;        // Average minimum temp.
+AvgMaxTemp = MaxTot / Days;       // Average maximum temp.
+AvgRainfall = RainTot / Days;    // Average rainfall
+}
+cout << endl;
+cout << "Average minimum temperature: " << AvgMinTemp << endl;
+cout << "Average maximum temperature: " << AvgMaxTemp << endl;
+cout << "Average rainfall: " << AvgRainfall << endl;
+cout << "Total rainfall " << Rainot << endl;
+cout << "\n";                                              // Prints 4 calculated values to console
+
+cout << "Redo?: (Yes = 1, No = 0) ";
+cin >> run;                                                // Asks if users wants another reading
+cout << "\n";
+}
+while ( run == 1);
+return 0;                                             
+}
+}
