@@ -8,7 +8,7 @@ int main()                  // Start
 
 int run = 1;
 
-while (run == 1){           // Loops the seq if needed
+while (run == 1){           // Loops program if needed
 
 const float LONGEST_DAY = 31, SHORTEST_DAY = 1;                                 // Amount of days allowed
 const float MINMINTEMP = -70, MAXMINTEMP = 70, MAXMAXTEMP = 70,
